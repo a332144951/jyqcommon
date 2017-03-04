@@ -27,6 +27,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.jyq.android.common.log.LogUtil;
+import com.jyq.android.common.preferences.AppPreference;
+import com.jyq.android.common.preferences.JPreference;
 import com.jyq.android.common.storage.StorageType;
 import com.jyq.android.common.storage.StorageUtil;
 import com.jyq.android.common.sys.ScreenUtil;
@@ -52,6 +54,7 @@ public class CommonKit {
         ScreenUtil.init(mContext);
         String path = StorageUtil.getDirectoryByDirType(StorageType.TYPE_LOG);
         LogUtil.init(path, Log.DEBUG);
+
     }
 
     public void init(Context context){
