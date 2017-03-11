@@ -29,6 +29,9 @@ import android.support.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 /**
  * Created by Administrator on 2017/2/28.
@@ -68,7 +71,10 @@ public class ImageLoaderKit {
         Glide.with(context).load(resId).into(target);
     }
     public void displayImage(Context context, String url, @DrawableRes int loadingDrawable, @DrawableRes int failDrawable, ImageView target){
-        Glide.with(context).load(url).placeholder(loadingDrawable).fallback(failDrawable).into(target);
+        this.displayImage(context, url, loadingDrawable, failDrawable, target,null);
+    }
+    public void displayImage(Context context,String url,@DrawableRes int loadingDrawable,@DrawableRes int fallbackDrawable,ImageView target,RequestListener<String, GlideDrawable> listener){
+        Glide.with(context).load(url).placeholder(loadingDrawable).fallback(fallbackDrawable).listener(listener).into(target);
     }
 
 
