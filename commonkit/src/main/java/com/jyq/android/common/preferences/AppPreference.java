@@ -29,15 +29,8 @@ package com.jyq.android.common.preferences;
 
 public class AppPreference extends JPreference{
 
-    private static final String KEY_API_TOKEN="token";
     private static final String KEY_API_ACCOUNT="account";
     private static final String KEY_USER_INIT="user_init";
-    public static String getApiToken(){
-        return getString(KEY_API_TOKEN);
-    }
-    public static void saveApiToken(String token){
-        saveString(KEY_API_TOKEN,token);
-    }
     public static void saveInit(boolean init){
         saveBoolean(KEY_USER_INIT,init);
     }

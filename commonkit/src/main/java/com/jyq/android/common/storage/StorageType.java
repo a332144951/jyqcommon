@@ -9,6 +9,7 @@ public enum StorageType {
     TYPE_VIDEO(DirectoryName.VIDEO_DIRECTORY_NAME),
     TYPE_THUMB_IMAGE(DirectoryName.THUMB_DIRECTORY_NAME),
     TYPE_THUMB_VIDEO(DirectoryName.THUMB_DIRECTORY_NAME),
+    TYPE_CACHE(DirectoryName.CACHE_DIRECTORY_NAME),
     ;
     private DirectoryName storageDirectoryName;
     private long storageMinSize;                
@@ -39,6 +40,7 @@ public enum StorageType {
         IMAGE_DIRECTORY_NAME("image/"),
         THUMB_DIRECTORY_NAME("thumb/"),
         VIDEO_DIRECTORY_NAME("video/"),
+        CACHE_DIRECTORY_NAME("cache/"),
         ;
         
         private String path;

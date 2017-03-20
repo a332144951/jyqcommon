@@ -26,6 +26,7 @@ package com.jyq.android.common;
 import android.content.Context;
 import android.util.Log;
 
+import com.jyq.android.common.cache.CacheKit;
 import com.jyq.android.common.log.LogUtil;
 import com.jyq.android.common.preferences.AppPreference;
 import com.jyq.android.common.preferences.JPreference;
@@ -39,7 +40,7 @@ import com.jyq.android.common.sys.ScreenUtil;
 
 public class CommonKit {
     private  volatile static CommonKit instance;
-    private Context mContext;
+    private static Context mContext;
     public static CommonKit getInstance() {
         if (instance==null){
             synchronized (CommonKit.class){
@@ -49,16 +50,16 @@ public class CommonKit {
         return instance;
     }
     protected CommonKit(){
-
         StorageUtil.init(mContext,null);
         ScreenUtil.init(mContext);
         String path = StorageUtil.getDirectoryByDirType(StorageType.TYPE_LOG);
         LogUtil.init(path, Log.DEBUG);
-
+        CacheKit.init(mContext);
     }
 
-    public void init(Context context){
-        this.mContext=context.getApplicationContext();
+
+    public static void init(Context context){
+        CommonKit.mContext=context.getApplicationContext();
     }
 
     public Context getContext() {

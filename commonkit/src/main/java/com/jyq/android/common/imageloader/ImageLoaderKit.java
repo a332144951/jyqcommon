@@ -50,7 +50,7 @@ public class ImageLoaderKit {
         }
         return instance;
     }
-    protected ImageLoaderKit(){
+    private ImageLoaderKit(){
 
     }
 
