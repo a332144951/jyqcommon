@@ -54,7 +54,6 @@ public class CommonKit {
         ScreenUtil.init(mContext);
         String path = StorageUtil.getDirectoryByDirType(StorageType.TYPE_LOG);
         LogUtil.init(path, Log.DEBUG);
-        CacheKit.init(mContext);
     }
 
 
