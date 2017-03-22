@@ -29,9 +29,6 @@ public class ScreenUtil {
     public static int statusbarheight;
     public static int navbarheight;
 
-    static {
-        init(CommonKit.getInstance().getContext());
-    }
 
     public static int dip2px(float dipValue) {
         return (int) (dipValue * density + 0.5f);
