@@ -25,6 +25,7 @@ package com.jyq.android.common.cache;
 
 import android.content.Context;
 
+import com.jyq.android.common.CommonKit;
 import com.jyq.android.common.storage.StorageType;
 import com.jyq.android.common.storage.StorageUtil;
 
@@ -42,12 +43,11 @@ public class CacheKit {
         return ourInstance;
     }
 
-    private static Context mContext;
     private ACache InternalCache;
     private ACache ExternalCache;
 
     private CacheKit() {
-        InternalCache = ACache.get(mContext);
+        InternalCache = ACache.get(CommonKit.getInstance().getContext());
         ExternalCache = ACache.get(new File(StorageUtil.getDirectoryByDirType(StorageType.TYPE_CACHE)));
     }
 
@@ -68,10 +68,8 @@ public class CacheKit {
     }
 
     public void clearCache() {
-        ACache.get(mContext).clear();
+        ACache.get(CommonKit.getInstance().getContext()).clear();
     }
 
-    public static void init(Context context) {
-        CacheKit.mContext = context.getApplicationContext();
-    }
+
 }
