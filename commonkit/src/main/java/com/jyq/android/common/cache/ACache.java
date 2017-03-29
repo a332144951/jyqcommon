@@ -223,7 +223,7 @@ import java.util.Map;
      */
     public JsonObject getAsJSONObject(String key) {
         String JSONString = getAsString(key);
-        return new JsonParser().parse(JSONString).getAsJsonObject();
+        return new JsonParser().parse(JSONString==null?"":JSONString).getAsJsonObject();
     }
 
     // =======================================
@@ -263,7 +263,7 @@ import java.util.Map;
      */
     public JsonArray getAsJSONArray(String key) {
         String JSONString = getAsString(key);
-        return new JsonParser().parse(JSONString).getAsJsonArray();
+        return new JsonParser().parse(JSONString==null?"":JSONString).getAsJsonArray();
     }
 
     // =======================================
